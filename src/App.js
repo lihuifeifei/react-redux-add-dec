@@ -7,10 +7,10 @@ class App extends Component {
         return (
             <div id="root">
                 <div>
-                    {this.props.demoState.count}
+                    当前数字为：{this.props.demoState.count}
                 </div>
-                <a onClick={()=>this.props.add()}>增加</a>
-                <a onClick={()=>this.props.reduce()}>减少</a>
+                <button onClick={()=>this.props.add()}>增加</button>
+                <button onClick={()=>this.props.reduce()}>减少</button>
             </div>
         )
     }
