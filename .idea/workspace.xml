@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="195cabbd-a694-4b58-9069-7a08cb5bea39" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.js" afterPath="$PROJECT_DIR$/src/App.js" />
     </list>
     <ignored path="react-redux-add.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -312,12 +311,12 @@
       <workItem from="1539243771910" duration="2829000" />
       <workItem from="1539247293002" duration="1109000" />
       <workItem from="1539248701853" duration="1680000" />
-      <workItem from="1539251065317" duration="402000" />
+      <workItem from="1539251065317" duration="795000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6020000" />
+    <option name="totallyTimeSpent" value="6413000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
