@@ -1,64 +1,35 @@
 import React, { Component } from 'react';
 import './App.css';
-
-function createStore(reducer){
-    var state,listeners = [];
-    const getState = () => state;
-    const dispatch = (action) => {
-        state = reducer(state,action);
-        listeners.forEach(item => item())
-    }
-    const subscribe = (listener) => {
-        listeners.push(listener);
-        return ()=>{
-            listeners = listeners.filter(item => item != listener)
-        }
-    }
-    dispatch({});
-    return {
-        getState,
-        dispatch,
-        subscribe
-    }
-}
-function reducer(state = 0,action) {
-    switch (action.type){
-        case "ADD":
-            return this.state+1;
-            break;
-        case "DEC":
-            return this.state-1;
-            break;
-        default:
-            return state
-    }
-}
-var store=createStore(reducer);
-var obj = document.getElementById('root');
-obj.innerHTML = store.getState();
-store.subscribe(function () {
-    obj.innerHTML = store.getState();
-})
-
-function add() {
-    store.dispatch({type: 'ADD'})
-}
-function dec () {
-    store.dispatch({type:'DEC'})
-}
+import { add, reduce } from  "./action"
+import { connect } from 'react-redux'
 class App extends Component {
-    
     render () {
         return (
             <div id="root">
-                <div >当前数字为：{obj.innerHTML}</div>
                 <div>
-                <button onClick="add()">加1</button>
-                <button onClick="dec()">减1</button>
-                    </div>
+                    {this.props.demoState.count}
+                </div>
+                <a onClick={()=>this.props.add()}>增加</a>
+                <a onClick={()=>this.props.reduce()}>减少</a>
             </div>
         )
     }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+    return {
+        demoState : state.demo,
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+        add : ()=>add(dispatch),
+        reduce : ()=>reduce(dispatch)
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(App);
+
